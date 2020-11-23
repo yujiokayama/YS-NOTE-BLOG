@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import PostBody from "~/components/post-body";
-import Header from "~/components/header";
 import PostHeader from "~/components/post-header";
 import Layout from "~/components/layout/Default";
 import { getPostBySlug, getAllPosts } from "~/lib/api";
@@ -22,13 +21,12 @@ const Post = ({ post, morePosts }: Props) => {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout title={post.title} image={post.ogImage.url}>
-      <Header />
+    <Layout title={post.title}>
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
         <>
-          <article className="mb-32">
+          <article>
             <PostHeader
               title={post.title}
               coverImage={post.coverImage}
