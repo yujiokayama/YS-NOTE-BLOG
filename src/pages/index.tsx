@@ -14,7 +14,7 @@ const Index = ({ allPosts }: Props) => {
   return (
     <>
       <Layout title="YS-NOTE">
-        {heroPost && (
+        {/* {heroPost && (
           <HeroPost
             title={heroPost.title}
             coverImage={heroPost.coverImage}
@@ -23,7 +23,7 @@ const Index = ({ allPosts }: Props) => {
             slug={heroPost.slug}
             excerpt={heroPost.excerpt}
           />
-        )}
+        )} */}
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Layout>
     </>
