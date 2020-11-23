@@ -1,0 +1,62 @@
+/**
+* mediaquery
+*/
+
+$tab: 560px;
+$pc: 960px;
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+/**
+* margin
+*/
+
+$margin-min: 1;
+$margin-max: 20;
+
+@for $i from $margin-min through $margin-max {
+  .mt-#{$i} {
+    margin-top: #{$i}px;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}px;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}px;
+  }
+}
+
+/**
+* padding
+*/
+
+$padding-min: 1;
+$padding-max: 20;
+
+@for $i from $padding-min through $padding-max {
+  .pt-#{$i} {
+    padding-top: #{$i}px;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}px;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}px;
+  }
+}

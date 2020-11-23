@@ -1,0 +1,23 @@
+version: "3"
+services:
+  # next-app
+  next:
+    container_name: next-app-container
+    image: next-app-image
+    # buildで【.】を指定することで、同一ディレクトリのDockerfileを元にcontainerを作成
+    build: .
+    # portsでホストマシンの3000番portとコンテナの3000番portを照合します
+    ports:
+      - 3000:3000
+      - 9005:9005
+    volumes:
+      # volumesで、ホストマシンのカレントディレクトリをコンテナの/appへマウント
+      - ./:/app
+      # Dockerfile(コンテナ内)でinstallしたnode_modulesが消えないように、/app/node_modulesをホストマシンにマウント
+      - /app/node_modules
+    # tty コンテナの永続化
+    tty: true
+    # working_dirでコマンドを実行するディレクトリを指定
+    working_dir: /app
+    # commandでコンテナが立ち上がったタイミングで、yarn run dev命令を実行するように指定
+    command: npm run dev
