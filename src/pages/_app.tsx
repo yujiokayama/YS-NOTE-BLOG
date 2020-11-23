@@ -1,7 +1,6 @@
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { setupStore } from "~/store/store";
-import { AuthProvider } from "~/context/Auth";
 
 import "../styles/tailwind.css";
 import "../styles/index.scss";
