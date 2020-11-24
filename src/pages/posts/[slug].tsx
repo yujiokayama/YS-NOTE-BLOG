@@ -27,13 +27,18 @@ const Post = ({ post, morePosts }: Props) => {
       ) : (
         <>
           <article>
-            <PostHeader
+            {/* <PostHeader
               title={post.title}
               coverImage={post.coverImage}
               date={post.date}
               author={post.author}
+            /> */}
+            <PostBody
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              content={post.content}
             />
-            <PostBody content={post.content} />
           </article>
         </>
       )}
