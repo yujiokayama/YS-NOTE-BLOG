@@ -10,7 +10,7 @@ type Props = {
 const Index = ({ allPosts }: Props) => {
   return (
     <>
-      <Layout title="YS-NOTE">
+      <Layout title="YS-NOTE" description="フロントエンドエンジニアの技術ブログ" keyword="フロントエンド,Web,テクノロジー">
         {allPosts.length > 0 && <MoreStories posts={allPosts} />}
       </Layout>
     </>
