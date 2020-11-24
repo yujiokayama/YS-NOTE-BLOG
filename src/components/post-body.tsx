@@ -14,10 +14,6 @@ type Props = {
 };
 
 const PostBody = ({ title, coverImage, date, content }: Props) => {
-  const md = classNames({
-    md: true,
-  });
-
   return (
     <>
       <div className="container post">
@@ -43,7 +39,7 @@ const PostBody = ({ title, coverImage, date, content }: Props) => {
         </div>
         <div className="post-side">
           <section>
-            <TableOfContents />
+            <TableOfContents selector={markdownStyles.markdown} />
             <Link href="/">
               <a aria-label="記事一覧へ" className="to-top">
                 <span>記事一覧へ</span>

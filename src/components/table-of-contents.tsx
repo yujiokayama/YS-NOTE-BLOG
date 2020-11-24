@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 
-type Props = {};
+type Props = {
+  selector: string;
+};
 
-const TableOfContents = ({}: Props) => {
+const TableOfContents = ({ selector }: Props) => {
   const createTableOfContents = () => {
-    const toc = document.querySelector(".post");
-    const headlines = document.querySelectorAll(
-      "#TABLE_OF_CONTENTS h2, #TABLE_OF_CONTENTS h3"
-    );
-    const h2 = document.querySelectorAll("#TABLE_OF_CONTENTS h2");
-    const h3 = document.querySelectorAll("#TABLE_OF_CONTENTS h3");
+    const target = `.${selector}`;
+    const toc = document.querySelector(".toc");
+    const headlines = document.querySelectorAll(`${target} h2, ${target} h3`);
+    const h2 = document.querySelectorAll(`${target} h2`);
+    const h3 = document.querySelectorAll(`${target} h3`);
 
     for (let i = 0; i < headlines.length; i++) {
       // h2
@@ -55,7 +56,8 @@ const TableOfContents = ({}: Props) => {
 
   return (
     <>
-      <div id="TABLE_OF_CONTENTS"></div>
+      <h2 className="toc-title">Table Of Contents</h2>
+      <div className="toc"></div>
     </>
   );
 };
