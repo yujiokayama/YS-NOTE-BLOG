@@ -29,6 +29,7 @@ const Layout = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta name="keywords" content={keyword} />
+      <meta name="description" content={description} />
       <meta property="og:type" content="blog" />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
