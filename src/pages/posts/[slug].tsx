@@ -21,18 +21,12 @@ const Post = ({ post, morePosts }: Props) => {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout title={post.title}>
+    <Layout title={post.title} description={post.title}>
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
         <>
           <article>
-            {/* <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-            /> */}
             <PostBody
               title={post.title}
               coverImage={post.coverImage}

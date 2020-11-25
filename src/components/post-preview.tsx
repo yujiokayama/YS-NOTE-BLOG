@@ -1,5 +1,7 @@
 import Avatar from "./avatar";
 import DateFormatter from "./date-formatter";
+import Tags from "~/components/tags";
+
 import CoverImage from "./cover-image";
 import Link from "next/link";
 import Author from "../types/author";
@@ -42,15 +44,9 @@ const PostPreview = ({
           </ul>
           <div>
             <ul className="article-tags">
-              <li className="article-tags-item">
-                {tags.map((tag, index, array) => {
-                  if (array.length !== 1) {
-                    return index !== 0 ? `, ${tag}` : `${tag}`;
-                  } else {
-                    return `${tag}`;
-                  }
-                })}
-              </li>
+              {tags.map((tag, index, array) => (
+                <Tags name={tag} />
+              ))}
             </ul>
           </div>
           {/* <div>
