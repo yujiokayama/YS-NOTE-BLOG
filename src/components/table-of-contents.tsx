@@ -10,7 +10,7 @@ const TableOfContents = ({ selector }: Props) => {
     const toc = document.querySelector(".toc");
     const headlines = document.querySelectorAll(`${target} h2, ${target} h3`);
     const h2 = document.querySelectorAll(`${target} h2`);
-    const h3 = document.querySelectorAll(`${target} h3`);
+    // const h3 = document.querySelectorAll(`${target} h3`);
 
     for (let i = 0; i < headlines.length; i++) {
       // h2
@@ -30,23 +30,23 @@ const TableOfContents = ({ selector }: Props) => {
         toc?.appendChild(ul);
       }
       // h3
-      if (headlines[i].tagName === "H3") {
-        for (let i = 0; i < h3.length; i++) {
-          const id = `${h3[i].nodeName}-${[i + 1]}`;
-          h3[i].id = id;
-        }
-        const ul = document.createElement("ol");
-        const li = document.createElement("li");
-        const a: any = document.createElement("a");
-        const lastUl = toc?.lastElementChild;
-        const lastLi = lastUl?.lastElementChild;
-        ul.classList.add("toc-list-h3");
-        a.innerHTML = headlines[i].textContent;
-        a.href = "#" + headlines[i].id;
-        li.appendChild(a);
-        ul.appendChild(li);
-        lastLi?.appendChild(ul);
-      }
+      // if (headlines[i].tagName === "H3") {
+      //   for (let i = 0; i < h3.length; i++) {
+      //     const id = `${h3[i].nodeName}-${[i + 1]}`;
+      //     h3[i].id = id;
+      //   }
+      //   const ul = document.createElement("ol");
+      //   const li = document.createElement("li");
+      //   const a: any = document.createElement("a");
+      //   const lastUl = toc?.lastElementChild;
+      //   const lastLi = lastUl?.lastElementChild;
+      //   ul.classList.add("toc-list-h3");
+      //   a.innerHTML = headlines[i].textContent;
+      //   a.href = "#" + headlines[i].id;
+      //   li.appendChild(a);
+      //   ul.appendChild(li);
+      //   lastLi?.appendChild(ul);
+      // }
     }
   };
 
