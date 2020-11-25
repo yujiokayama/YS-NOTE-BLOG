@@ -7,7 +7,7 @@ type Props = {
 const TableOfContents = ({ selector }: Props) => {
   const createTableOfContents = () => {
     const target = `.${selector}`;
-    const toc = document.querySelector(".toc");
+    const toc: HTMLDivElement | null = document.querySelector(".toc");
     const headlines = document.querySelectorAll(`${target} h2, ${target} h3`);
     const h2 = document.querySelectorAll(`${target} h2`);
     // const h3 = document.querySelectorAll(`${target} h3`);
@@ -19,11 +19,11 @@ const TableOfContents = ({ selector }: Props) => {
           const id = `${h2[i].nodeName}-${[i + 1]}`;
           h2[i].id = id;
         }
-        const ul = document.createElement("ol");
-        const li = document.createElement("li");
-        const a: any = document.createElement("a");
+        const ul: HTMLUListElement = document.createElement("ol");
+        const li: HTMLLIElement = document.createElement("li");
+        const a: HTMLAnchorElement | string = document.createElement("a");
         ul.classList.add("toc-list-h2");
-        a.innerHTML = headlines[i].textContent;
+        a.textContent = headlines[i].textContent;
         a.href = "#" + headlines[i].id;
         li.appendChild(a);
         ul.appendChild(li);
