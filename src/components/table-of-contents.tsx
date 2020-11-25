@@ -13,7 +13,6 @@ const TableOfContents = ({ selector }: Props) => {
     // const h3 = document.querySelectorAll(`${target} h3`);
 
     for (let i = 0; i < headlines.length; i++) {
-      // h2
       if (headlines[i].tagName === "H2") {
         for (let i = 0; i < h2.length; i++) {
           const id = `${h2[i].nodeName}-${[i + 1]}`;
@@ -21,7 +20,7 @@ const TableOfContents = ({ selector }: Props) => {
         }
         const ul: HTMLUListElement = document.createElement("ol");
         const li: HTMLLIElement = document.createElement("li");
-        const a: HTMLAnchorElement | string = document.createElement("a");
+        const a: HTMLAnchorElement = document.createElement("a");
         ul.classList.add("toc-list-h2");
         a.textContent = headlines[i].textContent;
         a.href = "#" + headlines[i].id;
@@ -29,7 +28,6 @@ const TableOfContents = ({ selector }: Props) => {
         ul.appendChild(li);
         toc?.appendChild(ul);
       }
-      // h3
       // if (headlines[i].tagName === "H3") {
       //   for (let i = 0; i < h3.length; i++) {
       //     const id = `${h3[i].nodeName}-${[i + 1]}`;

@@ -8,6 +8,7 @@ author:
   picture: "/assets/blog/authors/joe.jpeg"
 ogImage:
   url: "/assets/images/posts/thumbnail/vue_nuxt.png"
+tags: ["Vue", "Nuxt"]
 ---
 
 ## はじめに

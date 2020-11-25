@@ -11,6 +11,7 @@ type Props = {
   excerpt: string;
   author: Author;
   slug: string;
+  tags: string[];
 };
 
 const PostPreview = ({
@@ -20,6 +21,7 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
+  tags,
 }: Props) => {
   return (
     <>
@@ -38,13 +40,20 @@ const PostPreview = ({
               <DateFormatter dateString={date} />
             </li>
           </ul>
-          {/*
           <div>
             <ul className="article-tags">
-              <li>タグ</li>
+              <li className="article-tags-item">
+                {tags.map((tag, index, array) => {
+                  if (array.length !== 1) {
+                    return index !== 0 ? `, ${tag}` : `${tag}`;
+                  } else {
+                    return `${tag}`;
+                  }
+                })}
+              </li>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <Avatar name={author.name} picture={author.picture} />
           </div> */}
         </div>

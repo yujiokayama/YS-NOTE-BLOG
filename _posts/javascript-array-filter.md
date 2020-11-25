@@ -8,6 +8,7 @@ author:
   picture: "/assets/blog/authors/joe.jpeg"
 ogImage:
   url: "/assets/images/posts/thumbnail/javascript.png"
+tags: ["JavaScript"]
 ---
 
 ## はじめに
