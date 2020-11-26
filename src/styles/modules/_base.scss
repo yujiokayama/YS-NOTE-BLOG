@@ -30,7 +30,7 @@ footer {
   padding: 0 1rem;
   overflow: hidden;
   @include pc {
-    width: 1024px;
+    width: 100%;
     max-width: 1024px;
   }
 }

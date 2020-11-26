@@ -1,14 +1,15 @@
 .article {
   &-content {
-    background-color: white !important;
-    box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.12);
+    // border: 1px solid #E0E0E0;
+    // background-color: white;
+    // box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.12);
   }
   &-inner {
     padding: 1rem;
   }
   &-title {
     margin: 0 0 0.5rem;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 1.2rem;
   }
   &-text {
@@ -20,6 +21,7 @@
   }
   &-infomation {
     margin: 1rem 0 0 0;
+    font-size: 0.8rem;
   }
   &-tags {
     display: flex;
@@ -29,10 +31,15 @@
       margin: 0.25rem 0;
       background: transparent;
       &:not(:last-child) {
-        margin-right: 0.5rem;
+        &:after {
+          content: '/';
+          vertical-align: bottom;
+          margin: 0 0 0 0.3rem;
+        }
+        margin-right: 0.3rem;
       }
       a {
-        border: 1px solid #949494;
+        // border: 1px solid #949494;
         display: inline-flex;
         align-items: center;
         text-align: center;
@@ -40,7 +47,7 @@
         font-size: 0.825rem;
         line-height: 1;
         letter-spacing: 1px;
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 0;
         text-decoration: none;
         transition: border-color 0.2s ease-in-out;
         &:hover {
@@ -136,8 +143,6 @@
   display: block;
   &-main {
     padding: 1.5rem;
-    background: #fff;
-    box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.12);
     .post-infomation {
       display: flex;
       justify-content: flex-end;
