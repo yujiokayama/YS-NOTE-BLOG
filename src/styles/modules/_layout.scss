@@ -24,7 +24,6 @@
   &-tags {
     display: flex;
     flex-wrap: wrap;
-    margin: 1rem 0 0 0;
     list-style: none;
     &-item {
       margin: 0.25rem 0;
@@ -32,23 +31,23 @@
       &:not(:last-child) {
         margin-right: 0.5rem;
       }
-    }
-    &-link {
-      border: 1px solid #949494;
-      display: inline-flex;
-      align-items: center;
-      text-align: center;
-      color: rgb(74, 74, 74);
-      font-size: 0.825rem;
-      line-height: 1;
-      letter-spacing: 1px;
-      padding: 0.5rem 0.75rem;
-      text-decoration: none;
-      transition: border-color 0.2s ease-in-out;
-      &:hover {
+      a {
+        border: 1px solid #949494;
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
         color: rgb(74, 74, 74);
-        border-color: rgb(74, 74, 74);
-        background-color: transparent;
+        font-size: 0.825rem;
+        line-height: 1;
+        letter-spacing: 1px;
+        padding: 0.5rem 0.75rem;
+        text-decoration: none;
+        transition: border-color 0.2s ease-in-out;
+        &:hover {
+          color: rgb(74, 74, 74);
+          border-color: rgb(74, 74, 74);
+          background-color: transparent;
+        }
       }
     }
   }
