@@ -1,9 +1,12 @@
-import React, { useMemo, useCallback } from "react";
+import TagList from "~/components/tag-list";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <>
       <footer className="footer">
+        <div className="mt-10 mb-20">
+          <TagList />
+        </div>
         <ul className="icon-list">
           <li>
             <a

@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 type Props = {
-  name: string;
+  tag: string;
 };
 
-const Tags = ({ name }: Props) => {
+const Tags = ({ tag }: Props) => {
   return (
     <>
       <li className="article-tags-item">
-        <Link href="/">{name}</Link>
+        <Link href="/">{tag}</Link>
       </li>
     </>
   );

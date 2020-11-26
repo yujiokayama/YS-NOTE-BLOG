@@ -6,9 +6,7 @@ import { RootState } from "~/store/rootReducer";
 import { incrementCounter, decrementCounter } from "~/store/modules/Counter";
 
 const Redux: React.FC = () => {
-  /**
-   * reduxを使用したステート管理
-   */
+
   const { count } = useSelector((state: RootState) => state.Counter);
   const dispatch = useDispatch();
   const increment = () => dispatch(incrementCounter(1));

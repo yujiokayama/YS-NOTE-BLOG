@@ -44,8 +44,8 @@ const PostPreview = ({
           </ul>
           <div className="mt-3">
             <ul className="article-tags">
-              {tags.map((tag, index, array) => (
-                <Tags name={tag} />
+              {tags.map((tag, i) => (
+                <Tags tag={tag} key={i} />
               ))}
             </ul>
           </div>
