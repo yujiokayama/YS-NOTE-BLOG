@@ -5,7 +5,7 @@ type Props = {
   posts: Post[];
 };
 
-const MoreStories = ({ posts }: Props) => {
+const Archives = ({ posts }: Props) => {
   return (
     <>
       <ul className="article-list">
@@ -26,4 +26,4 @@ const MoreStories = ({ posts }: Props) => {
   );
 };
 
-export default MoreStories;
+export default Archives;
