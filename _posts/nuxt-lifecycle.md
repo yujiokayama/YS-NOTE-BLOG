@@ -13,9 +13,9 @@ tags: ["Vue", "Nuxt"]
 
 ## はじめに
 
-NuxtのSSR/CSRの処理のタイミング（ライフサイクル）がどのようになっているか漠然と理解していたのでまとめました。
+Nuxt の SSR/CSR の処理のタイミング（ライフサイクル）がどのようになっているか漠然と理解していたのでまとめました。
 
-## SSR・CSRとは
+## SSR・CSR とは
 
 ### SSR（サーバーサイドレンダリング）
 
@@ -23,60 +23,55 @@ NuxtのSSR/CSRの処理のタイミング（ライフサイクル）がどのよ
 2. **サーバーで**レンダリング
 3. ブラウザにレスポンスを返す
 
-> CSR: クライアントサイド レンダリング - ブラウザでアプリをレンダリングしたもの。一般的にはDOMを使用する。
+> CSR: クライアントサイド レンダリング - ブラウザでアプリをレンダリングしたもの。一般的には DOM を使用する。
 
 ### CSR（クライアントサイドレンダリング）
 
-> SSR: サーバーサイド レンダリング - クライアントサイド、または HTMLによるユニバーサルアプリをサーバー上でレンダリングしたもの。
+> SSR: サーバーサイド レンダリング - クライアントサイド、または HTML によるユニバーサルアプリをサーバー上でレンダリングしたもの。
 
 1. ブラウザからサーバーへリクエスト
 2. サーバーがレスポンスを返す
 3. **ブラウザ上**でレンダリング
 
-<a href="https://developers.google.com/web/updates/2019/02/rendering-on-the-web?hl=ja" target="_blank">Rendering on the Web - Web上のレンダリング
-  </a>
+<a href="https://developers.google.com/web/updates/2019/02/rendering-on-the-web?hl=ja" target="_blank">Rendering on the Web - Web 上のレンダリング
+</a>
 
 ## ライフサイクルについて
 
-NuxtとVueのライフサイクルは別物なので気を付ける
+Nuxt と Vue のライフサイクルは別物なので気を付ける
 
 ### 初回アクセス、リロード時
 
 初回アクセスやリロード時にはサーバーサイドレンダリングの処理とクライアントサイドレンダリングの処理の両方が動作します。
-pluginsとcreated（beforeCreate）はどちらの処理でも動作するので注意が必要です。
+plugins と created（beforeCreate）はどちらの処理でも動作するので注意が必要です。
 
-ログイン機能などの処理ははmiddlewareやpluginsに記述することが一般的だと思いますが、middlewareの場合は内部ナビゲーション遷移時はクライアントサイドでしか動作しないため、どちらの処理も書いておく必要があります。
-pluginsの場合は、内部ナビゲーション遷移時は動作しません。
+ログイン機能などの処理はは middleware や plugins に記述することが一般的だと思いますが、middleware の場合は内部ナビゲーション遷移時はクライアントサイドでしか動作しないため、どちらの処理も書いておく必要があります。
+plugins の場合は、内部ナビゲーション遷移時は動作しません。
 
 > Vue インスタンスの ライフサイクル において、beforeCreate と created フックのみが クライアントサイドとサーバーサイドの両方 で呼び出されることに注意してください。それ以外のすべてのフックはクライアントサイドでのみ呼び出されます。
-<a href="https://ja.nuxtjs.org/guide/plugins/" target="_blank">プラグイン</a>
+> <a href="https://ja.nuxtjs.org/guide/plugins/" target="_blank">プラグイン</a>
 
-### SSR（サーバーサイドレンダリング）
+### SSR
 
-nuxtServerInit
-↓
-plugins
-↓
-middleware
-↓
-asyncData　
-↓
-fetch
-↓
-beforeCreate
-↓
-created
+<ul>
+  <li>nuxtServerInit</li>
+  <li>plugins</li>
+  <li>middleware</li>
+  <li>asyncData</li>
+  <li>fetch</li>
+  <li>beforeCreate</li>
+  <li>created</li>
+</ul>
 
-### CSR(クライアントサイドレンダリング)
-plugins
-↓
-beforeCreate
-↓
-created
-↓
-beforeMount
-↓
-mounted
+### CSR
+
+<ul>
+  <li>plugins</li>
+  <li>beforeCreate</li>
+  <li>created</li>
+  <li>beforeMount</li>
+  <li>mounted</li>
+</ul>
 
 <br>
 参考:
