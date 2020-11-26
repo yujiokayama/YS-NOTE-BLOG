@@ -15,7 +15,7 @@ type Props = {
   preview?: boolean;
 };
 
-const Post = ({ post, morePosts }: Props) => {
+const Archives = ({ post, morePosts }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -40,7 +40,7 @@ const Post = ({ post, morePosts }: Props) => {
   );
 };
 
-export default Post;
+export default Archives;
 
 type Params = {
   params: {
