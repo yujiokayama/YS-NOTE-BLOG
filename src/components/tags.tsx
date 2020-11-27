@@ -1,15 +1,19 @@
 import Link from "next/link";
 
 type Props = {
-  tag: string;
+  tags: string[];
 };
 
-const Tags = ({ tag }: Props) => {
+const Tags = ({ tags }: Props) => {
   return (
     <>
-      <li className="article-tags-item">
-        <Link href="/">{tag}</Link>
-      </li>
+      <ul className="article-tags">
+        <li className="article-tags-item">
+          {tags.map((tag, i) => {
+            return <Link href="/" key={i}>{tag}</Link>;
+          })}
+        </li>
+      </ul>
     </>
   );
 };

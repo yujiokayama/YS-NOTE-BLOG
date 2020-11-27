@@ -20,4 +20,4 @@ services:
     # working_dirでコマンドを実行するディレクトリを指定
     working_dir: /app
     # commandでコンテナが立ち上がったタイミングで、yarn run dev命令を実行するように指定
-    command: npm run dev
+    command: yarn run dev

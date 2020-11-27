@@ -42,13 +42,7 @@ const PostPreview = ({
               <DateFormatter dateString={date} />
             </li>
           </ul>
-          <div className="mt-3">
-            <ul className="article-tags">
-              {tags.map((tag, i) => (
-                <Tags tag={tag} key={i} />
-              ))}
-            </ul>
-          </div>
+          <Tags tags={tags} />
           {/* <div>
             <Avatar name={author.name} picture={author.picture} />
           </div> */}

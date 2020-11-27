@@ -28,23 +28,7 @@
     flex-wrap: wrap;
     list-style: none;
     &-item {
-      margin: 0;
-      padding: 0;
-      background: transparent;
-      &:not(:last-child) {
-        &:after {
-          content: '/';
-          vertical-align: bottom;
-          margin: 0 0 0 0.3rem;
-          font-size: 0.825rem;
-        }
-        margin-right: 0.3rem;
-      }
       a {
-        // border: 1px solid #949494;
-        display: inline-flex;
-        align-items: center;
-        text-align: center;
         color: rgb(74, 74, 74);
         font-size: 0.825rem;
         line-height: 1;
@@ -52,6 +36,15 @@
         padding: 0;
         text-decoration: none;
         transition: border-color 0.2s ease-in-out;
+        &:not(:last-child) {
+          &:after {
+            content: "/";
+            vertical-align: middle;
+            margin: 0 0 0 0.3rem;
+            font-size: 0.825rem;
+          }
+          margin-right: 0.3rem;
+        }
         &:hover {
           color: rgb(74, 74, 74);
           border-color: rgb(74, 74, 74);

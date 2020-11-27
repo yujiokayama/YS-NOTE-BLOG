@@ -9,13 +9,11 @@ WORKDIR /app
 
 # RUN命令で、packageの更新 & firebase-toolsのインストール
 RUN apk update && \
+    yarn install && \
     yarn global add firebase-tools
 
 # COPY命令で、ホストマシンのpackage.jsonとpackage-lock.jsonをコンテナ内にコピー
 COPY ./package*.json ./
-
-# RUN命令で、コンテナ内で、npm installを実行し、moduleインストール
-RUN npm install
 
 # COPY命令で、ホストマシンのファイルをすべてコンテナにコピー
 COPY ./ .

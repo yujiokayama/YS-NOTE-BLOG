@@ -1,21 +1,20 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import PostBody from "~/components/post-body";
 
+import PostBody from "~/components/post-body";
 import Layout from "~/components/layout/Default";
 import { getPostBySlug, getAllPosts } from "~/lib/api";
 import PostTitle from "~/components/post-title";
-
 import markdownToHtml from "~/lib/markdownToHtml";
+
 import PostType from "~/types/post";
 
 type Props = {
   post: PostType;
-  morePosts: PostType[];
-  preview?: boolean;
 };
 
-const Post = ({ post, morePosts }: Props) => {
+const Post = ({ post }: Props) => {
+
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -32,6 +31,7 @@ const Post = ({ post, morePosts }: Props) => {
               coverImage={post.coverImage}
               date={post.date}
               content={post.content}
+              tags={post.tags}
             />
           </article>
         </>
@@ -57,7 +57,9 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "ogImage",
     "coverImage",
+    "tags",
   ]);
+
   const content = await markdownToHtml(post.content || "");
 
   return {

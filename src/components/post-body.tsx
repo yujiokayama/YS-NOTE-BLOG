@@ -1,19 +1,19 @@
 import Link from "next/link";
-
 import markdownStyles from "./markdown-styles.module.scss";
 import DateFormatter from "~/components/date-formatter";
 import CoverImage from "~/components/cover-image";
+import Tags from "~/components/tags";
 import TableOfContents from "~/components/table-of-contents";
-import classNames from "classnames";
 
 type Props = {
   title: string;
   coverImage: string;
   date: string;
   content: string;
+  tags: string[];
 };
 
-const PostBody = ({ title, coverImage, date, content }: Props) => {
+const PostBody = ({ title, coverImage, date, content, tags }: Props) => {
   return (
     <>
       <div className="container post">
@@ -26,8 +26,10 @@ const PostBody = ({ title, coverImage, date, content }: Props) => {
                   <DateFormatter dateString={date} />
                 </span>
               </li>
+              <li>
+                <Tags tags={tags} />
+              </li>
             </ul>
-
             <div className="thumbnail">
               <CoverImage title={title} src={coverImage} />
             </div>
@@ -44,7 +46,7 @@ const PostBody = ({ title, coverImage, date, content }: Props) => {
               <a aria-label="記事一覧へ" className="to-top">
                 <span>記事一覧へ</span>
               </a>
-            </Link>{" "}
+            </Link>
           </section>
         </div>
       </div>
