@@ -4,9 +4,8 @@ const Footer = () => {
   return (
     <>
       <footer className="footer">
-        <div className="mt-10 mb-20">
-          <TagList />
-        </div>
+        <TagList />
+        <div className="mt-10 mb-20"></div>
         <ul className="icon-list">
           <li>
             <a

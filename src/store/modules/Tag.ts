@@ -12,7 +12,7 @@ const tagModule = createSlice({
   name: "tag",
   initialState,
   reducers: {
-    fetchTags: (state, action: PayloadAction<string[]>) => {
+    setTags: (state, action: PayloadAction<string[]>) => {
       return {
         ...state,
         tags: action.payload,
@@ -22,6 +22,6 @@ const tagModule = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { fetchTags } = tagModule.actions;
+export const { setTags } = tagModule.actions;
 
 export default tagModule;
