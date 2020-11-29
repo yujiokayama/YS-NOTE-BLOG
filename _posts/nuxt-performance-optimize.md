@@ -1,5 +1,5 @@
 ---
-title: "静的サイトジェネレートしたサイトのパフォーマンスを最適化したい"
+title: "SSGしたサイトのパフォーマンスを最適化したい"
 excerpt: ""
 coverImage: "/assets/images/posts/thumbnail/vue_nuxt.png"
 date: "2020-11-22T12:00:00.322Z"
