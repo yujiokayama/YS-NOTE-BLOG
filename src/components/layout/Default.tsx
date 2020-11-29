@@ -20,7 +20,7 @@ const Layout = ({
   image,
   url,
 }: Props) => (
-  <div id="wrapper">
+  <>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -42,10 +42,14 @@ const Layout = ({
       <meta name="twitter:image" content={image} />
       <link rel="canonical" href={url} />
     </Head>
-    <Header />
-    <div className="container">{children}</div>
-    <Footer />
-  </div>
+    <div id="wrapper">
+      <Header />
+      <div id="main">
+        <div className="container">{children}</div>
+      </div>
+      <Footer />
+    </div>
+  </>
 );
 
 export default Layout;

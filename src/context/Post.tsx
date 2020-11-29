@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState, ReactNode } from "react";
+import { useContext, createContext, useEffect, useState, ReactNode } from "react";
 import Post from "~/types/post";
 
 /**
@@ -6,17 +6,18 @@ import Post from "~/types/post";
  */
 type typePostContext = {
   currentPosts: Post[] | null | undefined;
+  setCurrentPosts: (posts: Post[]) => void;
 };
-const PostContext = createContext<typePostContext>({ currentPosts: null });
+const PostContext = createContext<typePostContext | undefined>(undefined);
 
 /**
  * props type
  */
 type Props = {
-  children?: ReactNode;
+  children: ReactNode;
 };
 
-const PostProvider: React.FC = (props: Props) => {
+export const PostProvider = ({ children }: Props) => {
   const [currentPosts, setCurrentPosts] = useState<Post[] | null | undefined>(
     undefined
   );
@@ -30,6 +31,7 @@ const PostProvider: React.FC = (props: Props) => {
   useEffect(() => {
     fetchRepositories()
       .then((data) => {
+        PostContext;
         setCurrentPosts(data);
       })
       .catch((err) => {
@@ -38,10 +40,10 @@ const PostProvider: React.FC = (props: Props) => {
   }, []);
 
   return (
-    <PostContext.Provider value={{ currentPosts }}>
-      {props.children}
+    <PostContext.Provider value={{ currentPosts, setCurrentPosts }}>
+      {children}
     </PostContext.Provider>
   );
 };
 
-export { PostContext, PostProvider };
+export const usePosts = () => useContext(PostContext);

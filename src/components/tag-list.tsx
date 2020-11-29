@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-import { RootState } from "~/store/rootReducer";
+import { usePosts } from "~/context/Post";
 
 const TagList = () => {
+  const { currentPosts } = usePosts()!;
+
   useEffect(() => {}, []);
 
   // const tagCount: any = {};
@@ -31,8 +32,8 @@ const TagList = () => {
 
   return (
     <>
-      <ul className="tags">
-        {/* {tags.map((tag, i) => {
+      {/* <ul className="tags">
+        {tags.map((tag, i) => {
           return (
             <li className="tags-label" key={i}>
               <Link as={`/archives/${tag.name}`} href="/archives/[tag]">
@@ -42,7 +43,20 @@ const TagList = () => {
               </Link>
             </li>
           );
-        })} */}
+        })}
+      </ul> */}
+      <ul className="tags">
+        {["Vue", "Nuxt", "JavaScript"].map((tag, index) => {
+          return (
+            <Link as={`/archives/${tag}`} href="/archives/[tag]">
+              <li className="tags-label" key={index}>
+                <span>
+                  #<a className="ml-3">{tag}</a>
+                </span>
+              </li>
+            </Link>
+          );
+        })}
       </ul>
     </>
   );
