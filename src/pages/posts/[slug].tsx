@@ -1,19 +1,26 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-
 import PostBody from "~/components/post-body";
 import Layout from "~/components/layout/Default";
 import { getPostBySlug, getAllPosts } from "~/lib/api";
 import PostTitle from "~/components/post-title";
 import markdownToHtml from "~/lib/markdownToHtml";
 
+import { useDispatch } from "react-redux";
+import { fetchPosts } from "~/store/modules/Post";
+
 import PostType from "~/types/post";
 
 type Props = {
   post: PostType;
+  allPosts: PostType[];
 };
 
-const Post = ({ post }: Props) => {
+const Post = ({ post, allPosts }: Props) => {
+
+  const dispatch = useDispatch();
+  const onFetchPost = () => dispatch(fetchPosts(allPosts));
+  onFetchPost();
 
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
@@ -65,6 +72,15 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
+  const allPosts = getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "author",
+    "coverImage",
+    "excerpt",
+    "tags",
+  ]);
   const post = getPostBySlug(params.slug, [
     "title",
     "date",
@@ -75,13 +91,13 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "tags",
   ]);
-
   const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
       post: {
         ...post,
+        allPosts,
         content,
       },
     },

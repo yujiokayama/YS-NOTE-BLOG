@@ -50,4 +50,3 @@ export function getAllPosts(fields: string[] = []) {
   return posts;
 }
 
-

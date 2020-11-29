@@ -13,8 +13,8 @@ type Props = {
 const Index = ({ allPosts }: Props) => {
 
   const dispatch = useDispatch();
-  const onFetchPosts = () => dispatch(fetchPosts(allPosts));
-  onFetchPosts();
+  const onFetchPost = () => dispatch(fetchPosts(allPosts));
+  onFetchPost();
 
   return (
     <>

@@ -4,21 +4,19 @@ import MoreStories from "~/components/more-stories";
 import { getAllPosts } from "~/lib/api";
 import Post from "~/types/post";
 
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { RootState } from "~/store/rootReducer";
-import { setTags } from "~/store/modules/Tag";
+import { fetchPosts } from "~/store/modules/Post";
 
 type Props = {
   currentTag: string;
+  allPosts: Post[];
   filteredPosts: Post[];
-  tagList: string[];
 };
 
-const Archives = ({ currentTag, filteredPosts, tagList }: Props) => {
+const Archives = ({ currentTag, allPosts, filteredPosts }: Props) => {
   const dispatch = useDispatch();
-  const onSetTags = () => dispatch(setTags(tagList));
-  onSetTags();
+  const onFetchPost = () => dispatch(fetchPosts(allPosts));
+  onFetchPost();
 
   return (
     <>
@@ -70,6 +68,7 @@ type Params = {
  */
 export async function getStaticProps({ params }: Params) {
   const currentTag = params.tag;
+
   const tagList = Array.prototype.concat
     .apply(
       [],
@@ -80,6 +79,7 @@ export async function getStaticProps({ params }: Params) {
     .filter(function (val, index, array) {
       return array.indexOf(val) === index;
     });
+
   const allPosts = getAllPosts([
     "title",
     "date",
@@ -100,6 +100,7 @@ export async function getStaticProps({ params }: Params) {
     props: {
       currentTag,
       tagList,
+      allPosts,
       filteredPosts,
     },
   };
