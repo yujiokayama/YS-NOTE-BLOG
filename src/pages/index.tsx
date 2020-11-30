@@ -1,9 +1,12 @@
+import { useEffect } from "react";
 import MoreStories from "~/components/more-stories";
 import { getAllPosts } from "~/lib/api";
 import Post from "~/types/post";
 import Layout from "~/components/layout/Default";
 
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { RootState } from "~/store/rootReducer";
 import { fetchPosts } from "~/store/modules/Post";
 
 type Props = {
@@ -12,9 +15,13 @@ type Props = {
 
 const Index = ({ allPosts }: Props) => {
 
+  const { posts } = useSelector((state: RootState) => state.Post);
   const dispatch = useDispatch();
-  const onFetchPost = () => dispatch(fetchPosts(allPosts));
-  onFetchPost();
+  const onFetchPosts = () => dispatch(fetchPosts(allPosts));
+
+  useEffect(() => {
+    onFetchPosts();
+  }, [posts]);
 
   return (
     <>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import PostBody from "~/components/post-body";
@@ -5,22 +6,28 @@ import Layout from "~/components/layout/Default";
 import { getPostBySlug, getAllPosts } from "~/lib/api";
 import PostTitle from "~/components/post-title";
 import markdownToHtml from "~/lib/markdownToHtml";
-
-import { useDispatch } from "react-redux";
-import { fetchPosts } from "~/store/modules/Post";
-
 import PostType from "~/types/post";
 
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { RootState } from "~/store/rootReducer";
+import { fetchPosts } from "~/store/modules/Post";
+
+
 type Props = {
-  post: PostType;
   allPosts: PostType[];
+  post: PostType;
 };
 
-const Post = ({ post, allPosts }: Props) => {
+const Post = ({ allPosts, post }: Props) => {
 
+  const { posts } = useSelector((state: RootState) => state.Post);
   const dispatch = useDispatch();
-  const onFetchPost = () => dispatch(fetchPosts(allPosts));
-  onFetchPost();
+  const onFetchPosts = () => dispatch(fetchPosts(allPosts));
+
+  useEffect(() => {
+    onFetchPosts();
+  }, [posts]);
 
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
@@ -48,7 +55,6 @@ const Post = ({ post, allPosts }: Props) => {
 };
 
 export default Post;
-
 
 export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
@@ -81,6 +87,7 @@ export async function getStaticProps({ params }: Params) {
     "excerpt",
     "tags",
   ]);
+
   const post = getPostBySlug(params.slug, [
     "title",
     "date",
@@ -95,12 +102,11 @@ export async function getStaticProps({ params }: Params) {
 
   return {
     props: {
+      allPosts,
       post: {
         ...post,
-        allPosts,
         content,
       },
     },
   };
 }
-

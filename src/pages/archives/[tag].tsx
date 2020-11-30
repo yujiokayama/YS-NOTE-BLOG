@@ -1,10 +1,13 @@
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Layout from "~/components/layout/Default";
 import MoreStories from "~/components/more-stories";
 import { getAllPosts } from "~/lib/api";
 import Post from "~/types/post";
 
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { RootState } from "~/store/rootReducer";
 import { fetchPosts } from "~/store/modules/Post";
 
 type Props = {
@@ -14,9 +17,13 @@ type Props = {
 };
 
 const Archives = ({ currentTag, allPosts, filteredPosts }: Props) => {
+  const { posts } = useSelector((state: RootState) => state.Post);
   const dispatch = useDispatch();
-  const onFetchPost = () => dispatch(fetchPosts(allPosts));
-  onFetchPost();
+  const onFetchPosts = () => dispatch(fetchPosts(allPosts));
+
+  useEffect(() => {
+    onFetchPosts();
+  }, [posts]);
 
   return (
     <>
@@ -63,22 +70,8 @@ type Params = {
   };
 };
 
-/**
- * getStaticPathsからparamsを受け取る
- */
 export async function getStaticProps({ params }: Params) {
   const currentTag = params.tag;
-
-  const tagList = Array.prototype.concat
-    .apply(
-      [],
-      getAllPosts(["tags"]).map((tagNames) => {
-        return tagNames.tags;
-      })
-    )
-    .filter(function (val, index, array) {
-      return array.indexOf(val) === index;
-    });
 
   const allPosts = getAllPosts([
     "title",
@@ -98,9 +91,8 @@ export async function getStaticProps({ params }: Params) {
 
   return {
     props: {
-      currentTag,
-      tagList,
       allPosts,
+      currentTag,
       filteredPosts,
     },
   };
