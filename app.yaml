@@ -1,20 +1,11 @@
 # service: ys-note
-runtime: nodejs10
-instance_class: F2
-
+runtime: nodejs12
 handlers:
-  - url: /_nuxt
-    static_dir: .nuxt/dist/client
+  - url: /
+    static_files: build/index.html
+    upload: build/index.html
     secure: always
-
-  - url: /(.*\.(gif|png|jpg|ico|txt))$
-    static_files: static/\1
-    upload: static/.*\.(gif|png|jpg|ico|txt)$
-    secure: always
-
-  - url: /.*
-    script: auto
-    secure: always
-
+  - url: /
+    static_dir: build
 env_variables:
-  HOST: '0.0.0.0'
+  HOST: "0.0.0.0"
