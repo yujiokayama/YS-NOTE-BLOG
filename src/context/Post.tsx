@@ -30,7 +30,7 @@ export const PostProvider = ({ children }: Props) => {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-    setCurrentPosts(currentPosts)
+    // setCurrentPosts(currentPosts)
   }, []);
 
   return (
