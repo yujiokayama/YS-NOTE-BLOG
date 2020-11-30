@@ -1,5 +1,0 @@
-# service: ys-note
-runtime: nodejs12
-handlers:
-- url: /.*
-  script: auto
