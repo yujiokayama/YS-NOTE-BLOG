@@ -1,8 +1,7 @@
-import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Header: React.FC = () => {
+const Header = () => {
   const Logo = () => {
     return (
       <Image
@@ -10,6 +9,7 @@ const Header: React.FC = () => {
         alt="YS-NOTE"
         width="120"
         height="auto"
+        priority
       />
     );
   };
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
             <a>
               <Logo />
             </a>
-          </Link>{" "}
+          </Link>
         </h1>
       </header>
     </>
