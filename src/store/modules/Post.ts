@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import Post from "~/types/post";
 
 type State = {
-  posts: Post[];
+  posts: Post[] | null | undefined;
 };
 
 const initialState: State = {
@@ -10,13 +10,8 @@ const initialState: State = {
 };
 
 // export const fetchPost = createAsyncThunk(
-//   'modules/fetchAPI',
-//   async (arg, thunk) => {
-//     const res = await fetch('http://localhost:3004/members');
-//     if (res.ok) {
-//       return await res.json();
-//     }
-//     throw new Error('fetch error');
+//   "modules/fetchPost",
+//   async (_args, _thunkApi) => {
 //   }
 // );
 
@@ -27,7 +22,7 @@ const postModule = createSlice({
     fetchPosts: (state, action: PayloadAction<Post[]>) => {
       return {
         ...state,
-        posts: action.payload
+        posts: action.payload,
       };
     },
   },
@@ -35,7 +30,7 @@ const postModule = createSlice({
     // builder.addCase(fetchPost.fulfilled, (state, action) => {
     //   return {
     //     ...state,
-    //     list: action.payload
+    //     posts: action.payload,
     //   };
     // });
   },

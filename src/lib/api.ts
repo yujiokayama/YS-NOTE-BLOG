@@ -1,6 +1,7 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
+import axios from "axios";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -50,3 +51,14 @@ export function getAllPosts(fields: string[] = []) {
   return posts;
 }
 
+export async function getBlogContents() {
+  const url = "https://ys-note.microcms.io/api/v1/post";
+  const response = await axios
+    .get(url, {
+      headers: { "X-API-KEY": process.env.API_KEY },
+    })
+    .catch((error) => {
+      return error;
+    });
+  return JSON.parse(JSON.stringify(response))
+}

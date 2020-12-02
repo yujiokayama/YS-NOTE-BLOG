@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import MoreStories from "~/components/more-stories";
-import { getAllPosts } from "~/lib/api";
+import { getAllPosts, getBlogContents } from "~/lib/api";
 import Post from "~/types/post";
 import Layout from "~/components/layout/Default";
 
@@ -11,16 +11,17 @@ import { fetchPosts } from "~/store/modules/Post";
 
 type Props = {
   allPosts: Post[];
+  blogContents?: any;
 };
 
-const Index = ({ allPosts }: Props) => {
+const Index = ({ allPosts, blogContents }: Props) => {
   const { posts } = useSelector((state: RootState) => state.Post);
   const dispatch = useDispatch();
   const onFetchPosts = () => dispatch(fetchPosts(allPosts));
 
   useEffect(() => {
     onFetchPosts();
-  }, [posts]);
+  }, []);
 
   return (
     <>
@@ -38,6 +39,7 @@ const Index = ({ allPosts }: Props) => {
 export default Index;
 
 export const getStaticProps = async () => {
+  const blogContents = getBlogContents();
   const allPosts = getAllPosts([
     "title",
     "date",
@@ -49,6 +51,6 @@ export const getStaticProps = async () => {
   ]);
 
   return {
-    props: { allPosts },
+    props: { allPosts, blogContents },
   };
 };
