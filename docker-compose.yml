@@ -13,6 +13,9 @@ services:
     volumes:
       # volumesで、ホストマシンのカレントディレクトリをコンテナの/appへマウント
       - ./:/app
+      # Dockerfile(コンテナ内)でinstallしたnode_modulesが消えないように、/app/node_modulesをホストマシンにマウント
+      - /app/node_modules
+      - /app/.next
     # tty コンテナの永続化
     tty: true
     # working_dirでコマンドを実行するディレクトリを指定
