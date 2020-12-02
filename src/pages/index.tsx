@@ -14,7 +14,6 @@ type Props = {
 };
 
 const Index = ({ allPosts }: Props) => {
-
   const { posts } = useSelector((state: RootState) => state.Post);
   const dispatch = useDispatch();
   const onFetchPosts = () => dispatch(fetchPosts(allPosts));
