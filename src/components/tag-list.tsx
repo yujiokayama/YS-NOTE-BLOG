@@ -1,32 +1,17 @@
-import { useEffect } from "react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-import { RootState } from "~/store/rootReducer";
 
 const TagList = () => {
-  // const tags = ["Vue", "Nuxt", "JavaScript"];
-  const { posts } = useSelector((state: RootState) => state.Post);
 
   const tagCount: { [key: string]: number } = {};
 
-  const flat = posts.map((obj) => {
-    return obj.tags;
-  });
-
-  const flatTags = Array.prototype.concat.apply([], flat);
-
-  for (let i = 0; i < flatTags.length; i++) {
-    const key = flatTags[i];
-    tagCount[key] = tagCount[key] ? tagCount[key] + 1 : 1;
-  }
-
-  const tags = Object.entries(tagCount).map((e) => {
+  const tags = Object.entries(tagCount).map((element) => {
     return {
-      name: e[0] as string,
-      count: e[1] as number,
+      name: element[0] as string,
+      count: element[1] as number,
     };
   });
 
+  // 投稿数が多いタグの順番で並び替える
   tags.sort((a, b) => {
     return b.count - a.count;
   });
@@ -34,7 +19,7 @@ const TagList = () => {
   return (
     <>
       <ul className="tags">
-        {tags.map((tag, index) => {
+        {tags.map((tag) => {
           return (
             <li className="tags-label" key={tag.name}>
               <Link as={`/archives/${tag.name}`} href="/archives/[tag]">
