@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Post from "~/types/post";
 
 type State = {
@@ -8,12 +8,6 @@ type State = {
 const initialState: State = {
   posts: [],
 };
-
-// export const fetchPost = createAsyncThunk(
-//   "modules/fetchPost",
-//   async (_args, _thunkApi) => {
-//   }
-// );
 
 const postModule = createSlice({
   name: "post",
@@ -25,14 +19,6 @@ const postModule = createSlice({
         posts: action.payload,
       };
     },
-  },
-  extraReducers: (builder) => {
-    // builder.addCase(fetchPost.fulfilled, (state, action) => {
-    //   return {
-    //     ...state,
-    //     posts: action.payload,
-    //   };
-    // });
   },
 });
 

@@ -3,13 +3,11 @@ import MoreStories from "~/components/more-stories";
 import { getAllPosts } from "~/lib/api";
 import Post from "~/types/post";
 import Layout from "~/components/layout/Default";
-
 import { useDispatch } from "react-redux";
 import { fetchPosts } from "~/store/modules/Post";
 
 type Props = {
   allPosts: Post[];
-  blogContents?: any;
 };
 
 const Index = ({ allPosts }: Props) => {
