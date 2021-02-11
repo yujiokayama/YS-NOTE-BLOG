@@ -1,14 +1,14 @@
 ---
-title: "SSGしたサイトのパフォーマンスを最適化したい"
+title: "NuxtのSSGしたサイトのパフォーマンスを最適化したい"
 excerpt: ""
-coverImage: "/assets/images/posts/thumbnail/vue_nuxt.png"
+coverImage: "/assets/images/posts/thumbnail/nuxt.png"
 date: "2020-11-22T12:00:00.322Z"
 author:
   name: Yuji Okayama
-  picture: "/assets/blog/authors/joe.jpeg"
+  picture: "/assets/blog/authors/"
 ogImage:
-  url: "/assets/images/posts/thumbnail/vue_nuxt.png"
-tags: ["Vue", "Nuxt"]
+  url: "/assets/images/posts/thumbnail/nuxt.png"
+tags: ["Nuxt"]
 ---
 
 ## はじめに

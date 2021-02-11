@@ -5,13 +5,13 @@ import { RootState } from "~/store/rootReducer";
 const TagList = () => {
   const { posts } = useSelector((state: RootState) => state.Post);
 
-  const flatTags: any = posts?.map((obj) => {
-    return obj.tags;
-  }).flat();
+  const flatTags: any = posts
+    ?.map((obj) => {
+      return obj.tags;
+    })
+    .flat();
 
   const tagCount: { [key: string]: number } = {};
-
-  // const flatTags = flat.flat();
 
   for (let i = 0; i < flatTags.length; i++) {
     const key = flatTags[i];
@@ -43,6 +43,13 @@ const TagList = () => {
             </li>
           );
         })}
+        <li className="tags-label">
+          <Link href="/">
+            <a>
+              #<span className="pl-3">ALL</span>
+            </a>
+          </Link>
+        </li>
       </ul>
     </>
   );

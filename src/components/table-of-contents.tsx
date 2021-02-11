@@ -11,7 +11,6 @@ const TableOfContents = ({ selector }: Props) => {
     const headlines = document.querySelectorAll(`${target} h2, ${target} h3`);
     const h2 = document.querySelectorAll(`${target} h2`);
     // const h3 = document.querySelectorAll(`${target} h3`);
-
     for (let i = 0; i < headlines.length; i++) {
       if (headlines[i].tagName === "H2") {
         for (let i = 0; i < h2.length; i++) {

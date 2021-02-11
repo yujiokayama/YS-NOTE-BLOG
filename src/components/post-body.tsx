@@ -43,8 +43,8 @@ const PostBody = ({ title, coverImage, date, content, tags }: Props) => {
           <section>
             <TableOfContents selector={markdownStyles.markdown} />
             <Link href="/">
-              <a aria-label="記事一覧へ" className="to-top">
-                <span>記事一覧へ</span>
+              <a aria-label="ノート一覧へ" className="to-top">
+                <span>ノート一覧へ</span>
               </a>
             </Link>
           </section>

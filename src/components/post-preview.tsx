@@ -29,14 +29,14 @@ const PostPreview = ({
     <>
       <li className="article-content">
         <div className="article-inner">
+          <figure className="article-img">
+            <CoverImage slug={slug} title={title} src={coverImage} />
+          </figure>
           <h2 className="article-title">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a>{title}</a>
             </Link>
           </h2>
-          <figure className="article-img">
-            <CoverImage slug={slug} title={title} src={coverImage} />
-          </figure>
           <ul className="article-infomation">
             <li className="mt-5">
               <DateFormatter dateString={date} />

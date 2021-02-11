@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import TagList from "~/components/tag-list";
 
 const Header = () => {
   const Logo = () => {
@@ -24,6 +25,9 @@ const Header = () => {
           </Link>
         </h1>
       </header>
+      <div className="mb-20">
+        <TagList />
+      </div>
     </>
   );
 };
