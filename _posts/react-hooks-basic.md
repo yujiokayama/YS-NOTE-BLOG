@@ -17,5 +17,3 @@ tags: ["React"]
   (<a href='https://codepen.io/yujiokayama'>@yujiokayama</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 </div>
-
-
