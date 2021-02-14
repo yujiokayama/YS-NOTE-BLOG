@@ -144,6 +144,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   &-label {
+    margin: 0 0 2rem 0;
     & > a {
       position: relative;
       border: 2px solid black;
