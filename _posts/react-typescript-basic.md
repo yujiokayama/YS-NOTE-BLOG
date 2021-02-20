@@ -1,5 +1,5 @@
 ---
-title: "React × TypeScript"
+title: "React × TypeScriptの基本"
 excerpt: ""
 coverImage: "/assets/images/posts/thumbnail/react.png"
 date: "2021-02-13T12:00:00.322Z"
