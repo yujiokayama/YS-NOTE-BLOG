@@ -13,7 +13,7 @@ tags: ["React", "TypeScript"]
 
 ## React × TypeScript の基礎
 
-<iframe src="https://codesandbox.io/embed/react-typescript-basic-tfkgk?fontsize=14&hidenavigation=1&theme=dark"
+<iframe src="https://codesandbox.io/embed/github/yujiokayama/react_typescript_playground/tree/main/?fontsize=14&hidenavigation=1&theme=dark"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="react-typescript-basic"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
