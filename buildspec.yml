@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+  build:
+    commands:
+      - java -version
+      - mvn clean package
+artifacts:
+  files:
+    - appspec.yml
+    - scripts/start_hello_spring_boot.sh
+    - target/hello-spring-boot-0.0.1-SNAPSHOT.jar
