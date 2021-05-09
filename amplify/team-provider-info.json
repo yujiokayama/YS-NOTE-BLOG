@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-ysnote-dev-123846-authRole",
+            "UnauthRoleArn": "arn:aws:iam::633263325057:role/amplify-ysnote-dev-123846-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::633263325057:role/amplify-ysnote-dev-123846-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-ysnote-dev-123846-deployment",
+            "UnauthRoleName": "amplify-ysnote-dev-123846-unauthRole",
+            "StackName": "amplify-ysnote-dev-123846",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:633263325057:stack/amplify-ysnote-dev-123846/11646b90-b078-11eb-860b-06a811ba9fb3",
+            "AmplifyAppId": "d23gagb22npxkd"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d23gagb22npxkd",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}
