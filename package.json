@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
-    "start": "next start",
+    "start": "next start && next export",
+    "export": "next build && next export",
     "typecheck": "tsc"
   },
   "dependencies": {
