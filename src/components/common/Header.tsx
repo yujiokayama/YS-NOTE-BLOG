@@ -8,7 +8,7 @@ const Header = () => {
       <Image
         src="/assets/images/logo.svg"
         alt="YS-NOTE"
-        width="100"
+        width={100}
         height="auto"
         priority
       />
