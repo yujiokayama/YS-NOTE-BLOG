@@ -11,7 +11,7 @@ ogImage:
 tags: ["CSS"]
 ---
 
-## CSS-FlexBoxの有効活用
+## FlexBoxの有効活用
 
 <iframe height="265" style="width: 100%;" scrolling="no" title="CSS-FlexBoxの有効活用" src="https://codepen.io/yujiokayama/embed/WNoRjEp?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/yujiokayama/pen/WNoRjEp'>CSS-FlexBoxの有効活用</a> by yujiokayama
